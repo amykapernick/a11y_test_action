@@ -14,7 +14,7 @@ inputs:
     required: false
 outputs:
   results:
-    description: ${{steps.pa11y.outputs.results}}
+    description: "Results from pa11y tests"
     value: ${{steps.pa11y.outputs.results}}
 runs:
   using: "composite"
