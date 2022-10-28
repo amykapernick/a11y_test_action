@@ -1,0 +1,15 @@
+name: "A11y Testing"
+description: "Run accessibility tests on a provided URL and spit out the info"
+inputs:
+  url:
+    description: "Live URL of site to test"
+    required: true
+    default: "https://mysite.com"
+outputs:
+  errors:
+    description: "The number of errors received"
+  status:
+    description: "The status of the tests, pass or fail"
+runs:
+  using: "node16"
+  main: "index.js"
