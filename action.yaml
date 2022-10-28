@@ -23,6 +23,8 @@ runs:
       shell: bash
     - run: npm install -g pa11y-ci
       shell: bash
+    - run: ls -la && pwd
+      shell: bash
     - id: pa11y
       # run: echo "results=$(pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*)" >> $GITHUB_OUTPUT
       run: pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*
