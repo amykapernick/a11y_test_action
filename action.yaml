@@ -27,5 +27,5 @@ runs:
       shell: bash
     - id: pa11y
       # run: echo "results=$(pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*)" >> $GITHUB_OUTPUT
-      run: pa11y-ci --config ./.pa11yci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*
+      run: pa11y-ci --config ./.pa11yci --https://aimhigherweb.design/sitemap/sitemap-0.xml --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*
       shell: bash
