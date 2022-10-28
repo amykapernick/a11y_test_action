@@ -24,5 +24,6 @@ runs:
     - run: npm install -g pa11y-ci
       shell: bash
     - id: pa11y
-      run: echo "results=$(pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*)" >> $GITHUB_OUTPUT
+      # run: echo "results=$(pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*)" >> $GITHUB_OUTPUT
+      run: pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*
       shell: bash
