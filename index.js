@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const pa11y = require('pa11y')
 
 try {
 	// `url` input defined in action metadata file

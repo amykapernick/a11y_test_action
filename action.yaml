@@ -5,11 +5,24 @@ inputs:
     description: "Live URL of site to test"
     required: true
     default: "https://mysite.com"
+  pages:
+    description: "List of pages to test"
+    required: false
+    default: "['/', '/about', '/contact']"
+  sitemap:
+    description: "Sitemap of pages to test"
+    required: false
 outputs:
-  errors:
-    description: "The number of errors received"
-  status:
-    description: "The status of the tests, pass or fail"
+  results:
+    description: ${{steps.pa11y.outputs.results}}
+    value: ${{steps.pa11y.outputs.results}}
 runs:
-  using: "node16"
-  main: "dist/index.js"
+  using: "composite"
+  steps:
+    - run: echo "running rests on ${{inputs.url}}"
+      shell: bash
+    - run: npm install -g pa11y-ci
+      shell: bash
+    - id: pa11y
+      run: echo "results=$(pa11y-ci --sitemap-find https://aimhigherweb.design --sitemap-replace ${{inputs.url}} --sitemap-exclude /blog/*)" >> $GITHUB_OUTPUT
+      shell: bash
